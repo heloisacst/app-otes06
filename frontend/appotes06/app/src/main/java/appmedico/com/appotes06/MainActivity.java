@@ -40,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
 
+        btn_consulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(MainActivity.this, ConsultasActivity.class);
+                startActivity(it);
+            }
+        } );
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

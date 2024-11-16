@@ -1,41 +1,35 @@
 package appmedico.com.appotes06;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import api.ApiService;
-import api.RetrofitClient;
+import data.PacienteRepository;
 import model.Endereco;
-
 import model.Paciente;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import utils.Validador;
 
 public class PacientesCreateActivity extends AppCompatActivity {
 
     private TextView nameView, telefoneView, emailView, logradouroView, numeroView, complementoView, cidadeView, bairroView, ufView, cepView;
+    private PacienteRepository pacienteRepository;  // Repositório para interagir com a API
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_pacientes_create);
 
-       componentes();
+        pacienteRepository = new PacienteRepository();  // Inicializando o repositório
+
+        componentes();
 
         Button btnSalvar = findViewById(R.id.btnSalvar);
         btnSalvar.setOnClickListener(v -> enviarDados());  // Chama o método quando o botão for clicado
-
     }
 
     public void componentes() {
@@ -51,7 +45,7 @@ public class PacientesCreateActivity extends AppCompatActivity {
         bairroView = findViewById(R.id.bairroView);
     }
 
-    public void enviarDados(){
+    public void enviarDados() {
         String pacte_nome = nameView.getText().toString();
         String pacte_telefone = telefoneView.getText().toString();
         String pacte_email = emailView.getText().toString();
@@ -73,37 +67,19 @@ public class PacientesCreateActivity extends AppCompatActivity {
 
         Paciente paciente = new Paciente(pacte_nome, pacte_email, pacte_telefone, endereco);
 
-        // Criação da instância do ApiService
-        ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
-
-        // Envio da requisição para criar o médico
-        Call<Void> call = apiService.criarPaciente(paciente);
-
-        // Enfileirando a chamada de forma assíncrona
-        call.enqueue(new Callback<Void>() {
+        // Enviar os dados para o repositório para criação do paciente
+        pacienteRepository.criarPaciente(paciente, new PacienteRepository.PacienteCallback() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    // A resposta foi bem-sucedida
-                    // Exibe uma mensagem de sucesso
-                    Toast.makeText(PacientesCreateActivity.this, "Paciente criado com sucesso!", Toast.LENGTH_SHORT).show();
-                } else {
-                    // A resposta não foi bem-sucedida
-                    Toast.makeText(PacientesCreateActivity.this, "Erro ao criar paciente!", Toast.LENGTH_SHORT).show();
-                }
+            public void onSuccess(String message) {
+                // Exibe uma mensagem de sucesso
+                Toast.makeText(PacientesCreateActivity.this, message, Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                // Em caso de falha na requisição
-                Toast.makeText(PacientesCreateActivity.this, "Erro na requisição: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onError(String error) {
+                // Exibe uma mensagem de erro
+                Toast.makeText(PacientesCreateActivity.this, error, Toast.LENGTH_SHORT).show();
             }
-        });
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
         });
     }
 }
