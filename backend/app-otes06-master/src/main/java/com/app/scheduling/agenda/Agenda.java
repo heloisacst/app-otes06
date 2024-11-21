@@ -5,6 +5,7 @@ import com.app.scheduling.paciente.Paciente;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name="agendamento")
 @EqualsAndHashCode(of = "id")
+@Getter
 @Entity
 public class Agenda {
 
