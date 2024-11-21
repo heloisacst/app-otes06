@@ -260,7 +260,7 @@ android:fitsSystemWindows="true">
                 />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button1"
+                android:id="@+id/btnCancelar"
                 android:background="@drawable/botao_branco"
                 android:text="@string/btn_cancelar"
                 android:textAllCaps="false"

@@ -19,35 +19,10 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-
-        Button btn_medico = (Button) findViewById(R.id.button_medico);
-        Button btn_paciente = (Button) findViewById(R.id.button_paciente);
-        Button btn_consulta = (Button) findViewById(R.id.button_consultas);
-
-        btn_medico.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(MainActivity.this, MedicosActivity.class);
-                startActivity(it);
-            }
-        } );
-
-        btn_paciente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(MainActivity.this, PacientesActivity.class);
-                startActivity(it);
-            }
-        } );
-
-        btn_consulta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(MainActivity.this, ConsultasActivity.class);
-                startActivity(it);
-            }
-        } );
-
+        //Configura os botões para navegar pelas activity
+        findViewById(R.id.button_medico).setOnClickListener(view -> startActivity(new Intent(MainActivity.this, MedicosActivity.class)));
+        findViewById(R.id.button_paciente).setOnClickListener(view -> startActivity(new Intent(MainActivity.this, PacientesActivity.class)));
+        findViewById(R.id.button_consultas).setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ConsultasActivity.class)));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

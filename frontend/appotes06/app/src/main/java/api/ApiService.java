@@ -3,6 +3,7 @@ package api;
 import java.util.List;
 
 import model.Agenda;
+import model.AgendaResponse;
 import model.Medico;
 import model.MedicoResponse;
 import model.Paciente;
@@ -27,5 +28,8 @@ public interface ApiService {
 
     @POST("agendar")
     Call<Void> agendarConsulta(@Body Agenda agenda);
+
+    @GET("agendar")
+    Call<AgendaResponse> listarAgenda();
 
 }

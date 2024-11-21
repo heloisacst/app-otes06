@@ -1,16 +1,16 @@
 package model;
 
-import java.util.Date;  // Usar Date em vez de LocalDateTime
-
 public class Agenda {
     private int idPaciente;
     private int idMedico;
-    private Date dataHora; // Alterando para Date
+    private String nomePaciente;
+    private String nomeMedico;
+    private String dataHoraConsulta;
 
-    public Agenda(int idPaciente, int idMedico, Date dataHora) {
+    public Agenda(int idPaciente, int idMedico, String dataHoraConsulta) {
         this.idPaciente = idPaciente;
         this.idMedico = idMedico;
-        this.dataHora = dataHora;
+        this.dataHoraConsulta = dataHoraConsulta;
     }
 
     // Getters e Setters
@@ -30,11 +30,27 @@ public class Agenda {
         this.idMedico = idMedico;
     }
 
-    public Date getDataHoraConsulta() {
-        return dataHora;
+    public String getNomePaciente() {
+        return nomePaciente;
     }
 
-    public void setDataHoraConsulta(Date dataHoraConsulta) {
-        this.dataHora = dataHoraConsulta;
+    public void setNomePaciente(String nomePaciente) {
+        this.nomePaciente = nomePaciente;
+    }
+
+    public String getNomeMedico() {
+        return nomeMedico;
+    }
+
+    public void setNomeMedico(String nomeMedico) {
+        this.nomeMedico = nomeMedico;
+    }
+
+    public String getDataHoraConsulta() {
+        return dataHoraConsulta;
+    }
+
+    public void setDataHoraConsulta(String dataHoraConsulta) {
+        this.dataHoraConsulta = dataHoraConsulta;
     }
 }

@@ -1,7 +1,7 @@
 package appmedico.com.appotes06;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +16,7 @@ import utils.Validador;
 public class PacientesCreateActivity extends AppCompatActivity {
 
     private TextView nameView, telefoneView, emailView, logradouroView, numeroView, complementoView, cidadeView, bairroView, ufView, cepView;
-    private PacienteRepository pacienteRepository;  // Repositório para interagir com a API
+    private PacienteRepository pacienteRepository; // Repositório para interagir com a API
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +28,14 @@ public class PacientesCreateActivity extends AppCompatActivity {
 
         componentes();
 
-        Button btnSalvar = findViewById(R.id.btnSalvar);
-        btnSalvar.setOnClickListener(v -> enviarDados());  // Chama o método quando o botão for clicado
+        // Configura o botão salvar
+        findViewById(R.id.btnSalvar).setOnClickListener(v -> enviarDados());
+
+        // Configura o botão btnCancelar
+        findViewById(R.id.btnCancelar).setOnClickListener(v -> cancelarCadastro());
     }
 
+    //Metodo que cria os componentes
     public void componentes() {
         nameView = findViewById(R.id.nameView);
         telefoneView = findViewById(R.id.telefoneView);
@@ -45,6 +49,7 @@ public class PacientesCreateActivity extends AppCompatActivity {
         bairroView = findViewById(R.id.bairroView);
     }
 
+    //Metodo que envia dados ativo pelo botão btnSalvar
     public void enviarDados() {
         String pacte_nome = nameView.getText().toString();
         String pacte_telefone = telefoneView.getText().toString();
@@ -81,5 +86,12 @@ public class PacientesCreateActivity extends AppCompatActivity {
                 Toast.makeText(PacientesCreateActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    // Método para voltar para main
+    private void cancelarCadastro() {
+        Intent intent = new Intent(PacientesCreateActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

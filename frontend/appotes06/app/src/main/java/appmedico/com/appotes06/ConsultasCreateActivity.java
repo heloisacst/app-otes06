@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -13,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -173,13 +176,15 @@ public class ConsultasCreateActivity extends AppCompatActivity {
         timePickerDialog.show();  // Exibe o TimePicker
     }
 
-    // Método para agendar a consulta
     private void agendarConsulta() {
         int idPaciente = getPacienteId();  // Obtém o ID do paciente selecionado
         int idMedico = getMedicoId();  // Obtém o ID do médico selecionado
 
-        // Cria a string com data e hora no formato ISO 8601
+        // Cria a string com data e hora no formato exibido
         String dataHoraConsultaString = dateTextView.getText().toString() + " " + timeTextView.getText().toString();
+
+        // Log para verificar a string antes de enviar
+        Log.d("DataHoraConsulta", "Data e Hora: " + dataHoraConsultaString);
 
         // Usando SimpleDateFormat para converter a string para um objeto Date
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm"); // Formato original
@@ -190,17 +195,19 @@ public class ConsultasCreateActivity extends AppCompatActivity {
             dataHoraConsulta = format.parse(dataHoraConsultaString);  // Converte para Date
         } catch (ParseException e) {
             e.printStackTrace();  // Exibe erro caso o formato da data seja inválido
-            return;
-        }
-
-        // Verifica se a data foi convertida corretamente
-        if (dataHoraConsulta == null) {
             Toast.makeText(this, "Erro ao converter a data e hora", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Cria o objeto Agenda com o ID do paciente, médico e a data/hora da consulta
-        Agenda agenda = new Agenda(idPaciente, idMedico, dataHoraConsulta);
+        // Converte para String no formato ISO 8601, que é o formato esperado pela API
+        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        String dataHoraConsultaISO = isoFormat.format(dataHoraConsulta);
+
+        // Log para verificar o formato da data antes de enviar
+        Log.d("DataHoraConsultaISO", "Data e Hora formatada para API: " + dataHoraConsultaISO);
+
+        // Cria o objeto Agenda com a data no formato ISO 8601
+        Agenda agenda = new Agenda(idPaciente, idMedico, dataHoraConsultaISO);
 
         // Chama o repositório para agendar a consulta
         agendarConsultaRepository.agendarConsulta(agenda, new AgendarConsultaRepository.AgendamentoCallback() {
@@ -222,6 +229,7 @@ public class ConsultasCreateActivity extends AppCompatActivity {
             }
         });
     }
+
 
     // Obtém o ID do paciente selecionado no Spinner
     private int getPacienteId() {

@@ -1,5 +1,6 @@
 package appmedico.com.appotes06;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -51,10 +52,15 @@ public class MedicosCreateActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // Define o layout do item da lista suspensa
         especialidadeSpinner.setAdapter(adapter); // Configura o adapter no Spinner
 
-        Button btnSalvar = findViewById(R.id.btnSalvar);
-        btnSalvar.setOnClickListener(v -> enviarDados());  // Chama o método para salvar os dados quando o botão for clicado
+
+        // Configura o botão salvar
+        findViewById(R.id.btnSalvar).setOnClickListener(v -> enviarDados());
+
+        // Configura o botão btnCancelar
+        findViewById(R.id.btnCancelar).setOnClickListener(v -> cancelarCadastro());
     }
 
+    //Metodo que cria os componentes
     private void componentes() {
         nameView = findViewById(R.id.nameView);
         crmView = findViewById(R.id.crmView);
@@ -69,6 +75,7 @@ public class MedicosCreateActivity extends AppCompatActivity {
         bairroView = findViewById(R.id.bairroView);
     }
 
+    //Metodo que envia dados ativo pelo botão btnSalvar
     private void enviarDados() {
         String nome = nameView.getText().toString();
         especialidade = especialidadeSpinner.getSelectedItem().toString();
@@ -100,10 +107,8 @@ public class MedicosCreateActivity extends AppCompatActivity {
             return;
         }
 
-        // Criação do objeto Endereco
         Endereco endereco = new Endereco(logradouro, bairro, cep, cidade, uf, complemento, numero);
 
-        // Criação do objeto Medico
         Medico medico = new Medico(nome, especialidade, crm, email, telefone, endereco);
 
         // Enviar os dados para o repositório para criação do médico
@@ -120,5 +125,12 @@ public class MedicosCreateActivity extends AppCompatActivity {
                 Toast.makeText(MedicosCreateActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    // Método para voltar para main
+    private void cancelarCadastro() {
+        Intent intent = new Intent(MedicosCreateActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

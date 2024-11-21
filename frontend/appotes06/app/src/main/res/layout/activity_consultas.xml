@@ -31,7 +31,7 @@ tools:context=".ConsultasActivity">
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="100dp"
             android:layout_marginStart="16dp"
-            android:text="@string/pacientes"
+            android:text="@string/consultas"
             android:textColor="@color/white"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -79,11 +79,13 @@ tools:context=".ConsultasActivity">
                 android:layout_height="597dp">
 
                 <ListView
+                    android:id="@+id/listConsulta"
                     android:layout_width="410dp"
                     android:layout_height="499dp"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="40px"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
 
