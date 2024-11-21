@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- LinearLayout Horizontal para Data e Botão/Ícone -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/textViewDataHoraConsulta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/data_consulta"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_weight="0.8" />
+
+        <!-- Ícone de opções alinhado à direita -->
+        <ImageView
+            android:id="@+id/imageViewOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/vector_1" />
+
+    </LinearLayout>
+
+    <!-- Outros TextViews -->
+    <TextView
+        android:id="@+id/textViewNomeMedico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nome_medico"
+        android:textColor="@color/blue4"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewDescricaoMedico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/medico"
+        android:textColor="@color/text1"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textViewNomePaciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nome_paciente"
+        android:textColor="@color/blue4"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewPaciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/paciente"
+        android:textColor="@color/text1"
+        android:textSize="14sp" />
+
+    <!-- Botões Editar e Cancelar - inicialmente invisíveis -->
+    <LinearLayout
+        android:id="@+id/llButtons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <Button
+            android:id="@+id/buttonEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_editar"
+            android:textColor="@color/blue3"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:background="@drawable/button_border"
+            app:backgroundTint="@null"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            />
+
+        <Button
+            android:id="@+id/buttonCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_cancelar_consulta"
+            android:textColor="@color/blue3"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:background="@drawable/button_border"
+            app:backgroundTint="@null"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray" />
+
+</LinearLayout>

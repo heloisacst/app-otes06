@@ -79,9 +79,11 @@
                     android:layout_height="597dp">
 
                     <ListView
+                        android:id="@+id/listViewPacientes"
                         android:layout_width="410dp"
                         android:layout_height="499dp"
                         android:layout_marginTop="18dp"
+                        android:padding="40px"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"

@@ -7,21 +7,31 @@
     <string name="section_pacientes">Pacientes</string>
     <string name="section_consultas">Consultas</string>
     <string name="btn_cadastrar">Cadastrar novo perfil</string>
-    <string name="btn_concluir_cadastro">Concluir Cadastro</string>
-    <string name="btn_agendar_nova_consulta">Agendar nova consulta</string>
-    <string name="btn_agendar_consulta">Agendar consulta</string>
 
     <string name="pacientes">pacientes</string>
     <string name="medicos">Médicos</string>
     <string name="paciente">Paciente</string>
+    <string name="medico">Médico</string>
     <string name="pesquisar">Pesquisar</string>
+    <string name="excluir">Excluir</string>
 
     <string name="profissional">Profissional</string>
     <string name="contatos">Contatos</string>
     <string name="endereco_profissional">Endereço profissional</string>
     <string name="endereco">Endereço</string>
-
+    <string name="btn_concluir_cadastro">Concluir Cadastro</string>
+    <string name="btn_agendar_nova_consulta">Agendar nova consulta</string>
+    <string name="btn_agendar_consulta">Agendar consulta</string>
     <string name="novo_perfil">Novo perfil</string>
+    <string name="envolvidos">Envolvidos</string>
+    <string name="nome_paciente">Nome do paciente</string>
+    <string name="nome_medico">Nome do médico</string>
+    <string name="data_horario">Data e horário</string>
+    <string name="data_consulta">Data da consulta</string>
+    <string name="horario_consulta">Horário da consulta</string>
+    <string name="consultas">consultas</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_cancelar_consulta">Cancelar consulta</string>
     <string name="btn_cancelar">Cancelar</string>
     <string name="nome_completo">Nome Completo</string>
     <string name="cpf">CPF</string>
@@ -36,13 +46,6 @@
     <string name="cidade_input">Cidade</string>
     <string name="uf_input">UF</string>
     <string name="cep">CEP</string>
-    <string name="consultas">Consultas</string>
-    <string name="envolvidos">Envolvidos</string>
-    <string name="data_e_horário">Data e horário</string>
-    <string name="nome_paciente">Nome do Paciente</string>
-    <string name="nome_medico">Nome do médico</string>
-    <string name="data_consulta">Data da consulta</string>
-    <string name="horario_consulta">Horário da consulta</string>
 
     <string-array name="especialidades_array">
         <item>Ortopedia</item>
