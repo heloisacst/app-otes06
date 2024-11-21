@@ -7,7 +7,7 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
 android:background="@android:color/white"
-tools:context=".ConsultasCreateActivity"
+tools:context="ConsultasCreateActivity"
 android:fitsSystemWindows="true">
 
 
@@ -33,7 +33,7 @@ android:fitsSystemWindows="true">
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/section_consultas"
+            android:text="@string/consultas"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -58,117 +58,125 @@ android:fitsSystemWindows="true">
             android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/nome_paciente"
-                android:textColor="@color/blue3"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/namePacienteView"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/caixa_texto"
-                android:padding="14dp"
-                android:layout_marginBottom="6dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="16sp" />
-
+            <!-- Professional Name Section -->
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/nome_medico"
+                android:text="@string/envolvidos"
                 android:textColor="@color/blue3"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/nameMedicoView"
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/namePacienteView"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/caixa_texto"
-                android:padding="14dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="16sp" />
-
-            <!-- Contact Information Section -->
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginTop="6dp"
-                android:text="@string/data_horario"
-                android:textColor="@color/blue3"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/dateTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/data_horario"
                 android:background="@drawable/caixa_texto"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginTop="6dp"
+                android:ems="10"
+                android:hint="@string/nome_paciente"
                 android:padding="14dp"
-                android:layout_marginBottom="6dp"
                 android:textColor="@color/text2"
                 android:textColorHint="@color/text2"
-                android:textSize="16sp"  />
+                android:textSize="16sp" />
 
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/nameMedicoView"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/caixa_texto"
+                android:ems="10"
+                android:hint="@string/nome_medico"
+                android:inputType="text"
+                android:padding="14dp"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/text2"
+                android:textColorHint="@color/text2"
+                android:textSize="16sp" />
+
+            <!-- Address Information Section -->
             <TextView
-                android:id="@+id/timeTextView"
+                android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/horario_consulta"
+                android:layout_marginTop="6dp"
+                android:text="@string/data_e_horário"
+                android:textColor="@color/blue3"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/dataConsultaView"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="6dp"
                 android:background="@drawable/caixa_texto"
-                android:clickable="true"
-                android:focusable="true"
+                android:ems="10"
+                android:hint="@string/data_consulta"
+                android:inputType="none"
+                android:padding="14dp"
+                android:textColor="@color/text2"
+                android:textColorHint="@color/text2"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/horarioConsultaView"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/caixa_texto"
+                android:ems="10"
+                android:hint="@string/horario_consulta"
+                android:inputType="none"
                 android:padding="14dp"
                 android:textColor="@color/text2"
                 android:textColorHint="@color/text2"
                 android:textSize="16sp" />
         </LinearLayout>
-    </ScrollView>
+        </ScrollView>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollView">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnAgendar"
+            android:id="@+id/btnAgendarConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_weight="1"
             android:background="@drawable/botao_cinza"
             android:text="@string/btn_agendar_consulta"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="19sp"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnCancelar"
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@drawable/botao_branco"
             android:text="@string/btn_cancelar"
             android:textAllCaps="false"
             android:textColor="@color/blue3"
             android:textSize="19sp"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/btnSalvar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAgendarConsulta"
             app:layout_constraintVertical_bias="0.5" />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </LinearLayout>
 </LinearLayout>

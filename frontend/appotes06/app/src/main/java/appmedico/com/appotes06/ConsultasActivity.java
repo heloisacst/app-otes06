@@ -19,7 +19,7 @@ public class ConsultasActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_consultas);
 
-        Button btn = (Button) findViewById(R.id.button_cadastrar);
+        Button btn = (Button) findViewById(R.id.button_agendar);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
