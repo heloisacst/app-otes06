@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".MedicosCreateActivity"
+    android:fitsSystemWindows="true">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Header Section -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/blue3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:layout_editor_absoluteY="340dp">
+
+            <!-- TextView for header -->
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/novo_perfil"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- ScrollView containing form elements -->
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Professional Name Section -->
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profissional"
+                    android:textColor="@color/blue3"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/nameView"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/caixa_texto"
+                    android:ems="10"
+                    android:hint="@string/nome_completo"
+                    android:padding="14dp"
+                    android:textColor="@color/text2"
+                    android:textColorHint="@color/text2"
+                    android:textSize="16sp" />
+
+                <!-- Specialty and CRM Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <Spinner
+                        android:id="@+id/spinnerEspecialidade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/caixa_texto"
+                        android:padding="14dp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/crmView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/caixa_texto"
+                        android:ems="10"
+                        android:hint="@string/crm_input"
+                        android:inputType="text"
+                        android:padding="14dp"
+                        android:textColor="@color/text2"
+                        android:textColorHint="@color/text2"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Contact Information Section -->
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/contatos"
+                    android:textColor="@color/blue3"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/emailView"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/caixa_texto"
+                    android:ems="10"
+                    android:hint="@string/email_input"
+                    android:inputType="text"
+                    android:padding="14dp"
+                    android:textColor="@color/text2"
+                    android:textColorHint="@color/text2"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/telefoneView"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/caixa_texto"
+                    android:ems="10"
+                    android:hint="@string/telefone_input"
+                    android:inputType="text"
+                    android:padding="14dp"
+                    android:textColor="@color/text2"
+                    android:textColorHint="@color/text2"
+                    android:textSize="16sp" />
+
+                <!-- Address Information Section -->
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/endereco_profissional"
+                    android:textColor="@color/blue3"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/logradouroView"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/caixa_texto"
+                    android:ems="10"
+                    android:hint="@string/Logradouro_input"
+                    android:inputType="text"
+                    android:padding="14dp"
+                    android:textColor="@color/text2"
+                    android:textColorHint="@color/text2"
+                    android:textSize="16sp" />
+
+                <!-- Horizontal Layout for Number and Complement -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/numeroView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/caixa_texto"
+                        android:ems="10"
+                        android:hint="@string/numero_input"
+                        android:inputType="text"
+                        android:padding="14dp"
+                        android:textColor="@color/text2"
+                        android:textColorHint="@color/text2"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/complementoView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/caixa_texto"
+                        android:ems="10"
+                        android:hint="@string/complemento_input"
+                        android:inputType="text"
+                        android:padding="14dp"
+                        android:textColor="@color/text2"
+                        android:textColorHint="@color/text2"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- City and State Section -->
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/cidadeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/caixa_texto"
+                    android:ems="10"
+                    android:hint="@string/cidade_input"
+                    android:inputType="text"
+                    android:padding="14dp"
+                    android:textColor="@color/text2"
+                    android:textColorHint="@color/text2"
+                    android:textSize="16sp" />
+
+                <!-- Horizontal Layout for UF and CEP -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/ufView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/caixa_texto"
+                        android:ems="10"
+                        android:hint="@string/uf_input"
+                        android:inputType="text"
+                        android:padding="14dp"
+                        android:textColor="@color/text2"
+                        android:textColorHint="@color/text2"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cepView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/caixa_texto"
+                        android:ems="10"
+                        android:hint="@string/cep"
+                        android:inputType="text"
+                        android:padding="14dp"
+                        android:textColor="@color/text2"
+                        android:textColorHint="@color/text2"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Bairro Section -->
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/bairroView"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/caixa_texto"
+                    android:ems="10"
+                    android:hint="@string/bairro_input"
+                    android:inputType="text"
+                    android:padding="14dp"
+                    android:textColor="@color/text2"
+                    android:textColorHint="@color/text2"
+                    android:textSize="16sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSalvar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/botao_cinza"
+                    android:text="@string/btn_concluir_cadastro"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="19sp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button1"
+                    android:background="@drawable/botao_branco"
+                    android:text="@string/btn_cancelar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/blue3"
+                    android:textSize="19sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSalvar"
+                    app:layout_constraintVertical_bias="0.5" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
